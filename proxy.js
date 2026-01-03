@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 
-export function middleware(req) {
+export function proxy(req) {
     const token = req.cookies.get("token")?.value;
 
-    const protectedRoutes = ["/products", "/customers", "/bills"];
+    const protectedRoutes = ["/products", "/customers", "/history"];
 
     if (
         protectedRoutes.some((path) => req.nextUrl.pathname.startsWith(path)) &&
@@ -16,5 +16,5 @@ export function middleware(req) {
 }
 
 export const config = {
-    matcher: ["/products/:path*", "/customers/:path*", "/bills/:path*"],
+    matcher: ["/products/:path*", "/customers/:path*", "/history/:path*"],
 };
