@@ -89,7 +89,7 @@ export default function ProductsPage() {
                     placeholder="Unit"
                     value={form.unit}
                     onChange={(e) => setForm({ ...form, unit: e.target.value })}
-                    className="border-b bg-transparent outline-none"
+                    className="border-b bg-transparent outline-none text-right"
                 />
                 <button className="border px-4 py-1">Add</button>
             </form>
@@ -102,7 +102,7 @@ export default function ProductsPage() {
                 <div className="grid grid-cols-4 py-2 text-xs text-fg/50">
                     <span>Name</span>
                     <span className="text-right">Price</span>
-                    <span>Unit</span>
+                    <span className="text-right">Unit</span>
                     <span className="text-right">Actions</span>
                 </div>
 
@@ -142,7 +142,7 @@ export default function ProductsPage() {
                                     )
                                 )
                             }
-                            className="bg-transparent outline-none border-b border-transparent focus:border-fg/40"
+                            className="bg-transparent outline-none border-b border-transparent focus:border-fg/40 text-right"
                         />
 
                         <div className="text-right space-x-4">
