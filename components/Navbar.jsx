@@ -1,24 +1,53 @@
 "use client";
+import { useState } from "react";
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
 import LogoutButton from "@/components/logoutBtn";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
-        <nav className="flex justify-between items-center px-6 py-4 border-b border-fg/10">
-            <div className="font-bold text-lg">
-                <Link href="/">BillGen</Link>
+        <nav className="border-b border-fg/10 relative z-50" style={{ backgroundColor: "var(--bg)", color: "var(--fg)" }}>
+            <div className="flex justify-between items-center px-6 py-4">
+                <div className="font-bold text-lg">
+                    <Link href="/">BillGen</Link>
+                </div>
+
+                {/* Desktop Menu */}
+                <div className="hidden md:flex items-center gap-8 text-sm">
+                    <Link href="/">Home</Link>
+                    <Link href="/products">PRODUCTS</Link>
+                    <Link href="/customers">CUSTOMERS</Link>
+                    <Link href="/history">HISTORY</Link>
+                    <Link href="/create-new-bill">CREATE NEW BILL</Link>
+                    <LogoutButton />
+                    <ThemeToggle />
+                </div>
+
+                {/* Mobile Menu Button */}
+                <div className="md:hidden flex items-center gap-4">
+                    <ThemeToggle />
+                    <button onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+                        {isOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
             </div>
 
-            <div className="flex gap-28 text-sm">
-                <Link href="/">Home</Link>
-                <Link href="/products">PRODUCTS</Link>
-                <Link href="/customers">CUSTOMERS</Link>
-                <Link href="/history">HISTORY</Link>
-                <Link href="/create-new-bill">CREATE NEW BILL</Link>
-            </div>
-            <LogoutButton/>
-            <ThemeToggle/>
+            {/* Mobile Menu Dropdown */}
+            {isOpen && (
+                <div className="md:hidden absolute top-full left-0 right-0 border-b border-fg/10 p-4 flex flex-col gap-4 shadow-lg z-50" style={{ backgroundColor: "var(--bg)", color: "var(--fg)" }}>
+                    <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
+                    <Link href="/products" onClick={() => setIsOpen(false)}>PRODUCTS</Link>
+                    <Link href="/customers" onClick={() => setIsOpen(false)}>CUSTOMERS</Link>
+                    <Link href="/history" onClick={() => setIsOpen(false)}>HISTORY</Link>
+                    <Link href="/create-new-bill" onClick={() => setIsOpen(false)}>CREATE NEW BILL</Link>
+                    <div className="pt-2 border-t border-fg/10">
+                        <LogoutButton />
+                    </div>
+                </div>
+            )}
         </nav>
     );
 }
