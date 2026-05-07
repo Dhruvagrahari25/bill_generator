@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export function proxy(req) {
     const token = req.cookies.get("token")?.value;
 
-    const protectedRoutes = ["/products", "/customers", "/history"];
+    const protectedRoutes = ["/products", "/customers", "/history", "/create-new-bill"];
 
     if (
         protectedRoutes.some((path) => req.nextUrl.pathname.startsWith(path)) &&
@@ -16,5 +16,5 @@ export function proxy(req) {
 }
 
 export const config = {
-    matcher: ["/products/:path*", "/customers/:path*", "/history/:path*"],
+    matcher: ["/products/:path*", "/customers/:path*", "/history/:path*", "/create-new-bill/:path*"],
 };

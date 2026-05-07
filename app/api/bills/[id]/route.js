@@ -91,8 +91,7 @@ import { getUserFromRequest } from "@/lib/getUserFromRequest";
 
 export async function PATCH(request, context) {
     const auth = getUserFromRequest(request);
-    if (!auth)
-        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    if (!auth) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
     const { id } = await context.params;
     const {

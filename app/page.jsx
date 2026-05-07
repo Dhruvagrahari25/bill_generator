@@ -1,25 +1,26 @@
+// Hero Page
 export default function Home() {
     return (
         <div className="min-h-[calc(100vh-80px)] grid grid-cols-1 md:grid-cols-2">
 
             {/* Left */}
             <section className="flex flex-col justify-center px-6 md:px-16 order-2 md:order-1 pb-12 md:pb-0">
-                <h1 className="text-4xl md:text-5xl font-semibold mb-4 md:mb-6"> Online</h1>
-                <h1 className="text-4xl md:text-5xl font-semibold mb-4 md:mb-6"> Bill</h1>
-                <h1 className="text-4xl md:text-5xl font-semibold mb-4 md:mb-6"> Generator</h1>
+                <h1 className="text-4xl md:text-5xl font-semibold mb-4 md:mb-6"> BillGen</h1>
+                <h1 className="text-4xl md:text-5xl font-semibold mb-4 md:mb-6"> Invoicing tool</h1>
+                <h1 className="text-4xl md:text-5xl font-semibold mb-4 md:mb-6"> Simple. Effective. Fast.</h1>
 
-                <div className="flex gap-4">
+                <div className="flex gap-8">
                     <a
                         href="/login"
-                        className="px-6 py-3 border border-fg hover:bg-fg hover:text-bg transition"
+                        className="px-6 py-3 border border-fg hover:bg-fg hover:text-bg transition w-full text-center"
                     >
-                        Login
+                        LOGIN
                     </a>
                     <a
                         href="/signup"
-                        className="px-6 py-3 border border-fg/40 hover:border-fg transition"
+                        className="px-6 py-3 border border-fg/40 hover:border-fg transition w-full text-center"
                     >
-                        Sign Up
+                        SIGN UP
                     </a>
                 </div>
             </section>

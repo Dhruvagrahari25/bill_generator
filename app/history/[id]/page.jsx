@@ -87,8 +87,6 @@ export default function ViewBillPage() {
     }
 
     /* save */
-
-    /* save */
     async function save() {
         const res = await fetch(`/api/bills/${id}`, {
             method: "PATCH",
